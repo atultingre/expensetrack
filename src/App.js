@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Route, Link, Routes } from "react-router-dom";
+import { Route, Link, Routes, NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AppBar, Toolbar, Typography, Container } from "@mui/material";
+import { AppBar, Toolbar, Container } from "@mui/material";
 import ExpenseList from "./components/ExpenseList";
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseFormEdit from "./components/ExpenseFormEdit";
-
+import './index.css';
 const App = () => {
   const [expenses, setExpenses] = useState(() => {
     const savedExpenses = localStorage.getItem("expenses");
@@ -82,7 +82,7 @@ const App = () => {
     <>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6">Expense Tracker</Typography>
+          <NavLink className="logo" to='/'>CashFlowTracker</NavLink>
           <nav>
             <Link
               to="/"
