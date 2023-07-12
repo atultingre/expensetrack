@@ -34,7 +34,7 @@ const ExpenseForm = ({ addExpense }) => {
   };
 
   return (
-    <Container maxWidth="md" sx={{ mt: 10, mb: 19 }}>
+    <Container maxWidth="md" sx={{ mt: 10, mb: 51,  }}>
       <Typography variant="h4" gutterBottom>
         Add Expense
       </Typography>

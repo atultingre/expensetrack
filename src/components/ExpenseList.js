@@ -136,7 +136,7 @@ const ExpenseList = ({
   }
 
   return (
-    <Container maxWidth="md" className="w-full" sx={{ mt: 4, mb: 5 }}>
+    <Container maxWidth="md" className="w-full"  sx={{ mt: 4, mb: 5 ,minHeight:'100dvh' }}>
       <SummeryTable
         todaySpent={todaySpent}
         weekSpent={weekSpent}

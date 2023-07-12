@@ -51,7 +51,7 @@ const ExpenseFormEdit = ({ expenses, updateExpense }) => {
   }
 
   return (
-    <Container maxWidth="md" sx={{ mt: 10, mb: 15.5 }}>
+    <Container maxWidth="md" sx={{mb:30, mminHeight:'100dvh'}}>
       <Typography variant="h4" gutterBottom>
         Edit Expense
       </Typography>

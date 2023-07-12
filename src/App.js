@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Swal from "sweetalert2";
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import ExpenseList from "./components/ExpenseList";
 import ExpenseForm from "./components/Form/ExpenseForm";
 import ExpenseFormEdit from "./components/Form/ExpenseFormEdit";
@@ -81,7 +81,7 @@ const App = () => {
 
 
   return (
-    <>
+    <Box sx={{minHeight:'100vh'}} >
       <Navbar setFilterDate={setFilterDate} expenses={expenses}/>
       <Container maxWidth="md" style={{ marginTop: "20px" }}>
         <Routes>
@@ -90,8 +90,8 @@ const App = () => {
           <Route  path="/edit/:id"  element={ <ExpenseFormEdit  expenses={expenses}  updateExpense={updateExpense} />  } />
         </Routes>
       </Container>
-      <Footer/>
-    </>
+      <Footer/>    
+    </Box>
   );
 };
 
