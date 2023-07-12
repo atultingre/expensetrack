@@ -10,7 +10,7 @@ const Navbar = ({ setFilterDate, expenses }) => {
         // style={{ backgroundColor: "#ff9800", color: "black" }}
         >
         <Toolbar>
-          <Grid item xs={8}>
+          <Grid item xs={7}>
             <Link
               className="logo"
               exact
@@ -22,7 +22,7 @@ const Navbar = ({ setFilterDate, expenses }) => {
           {expenses.length === 0 ? (
             <Navigate exact to="/add" />
           ) : (
-            <Grid item xs={4}>
+            <Grid item xs={5}>
               <Button variant="outlined"
               // color="secondary" 
               sx={{ color: "white" }}
