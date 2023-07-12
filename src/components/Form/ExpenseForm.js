@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import { Typography, TextField, Button, Container, Box } from "@mui/material";
+import {
+  Typography,
+  TextField,
+  Button,
+  Container,
+  Box,
+  Grid,
+} from "@mui/material";
 
 const ExpenseForm = ({ addExpense }) => {
   const navigate = useNavigate();
@@ -27,58 +34,58 @@ const ExpenseForm = ({ addExpense }) => {
   };
 
   return (
-    <Container maxWidth="md" sx={{ mt: 4 }}>
+    <Container maxWidth="md" sx={{ mt: 10, mb: 19 }}>
       <Typography variant="h4" gutterBottom>
         Add Expense
       </Typography>
       <Box component="form" onSubmit={handleSubmit}>
-        <div>
-          <TextField
-            label="Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-            fullWidth
-            sx={{ mt: 2 }}
-          />
-        </div>
-        <div>
-          <TextField
-            label="Amount"
-            type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            required
-            fullWidth
-            sx={{ mt: 2 }}
-          />
-        </div>
-        <div>
-          <TextField
-            label="Date"
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            required
-            fullWidth
-            sx={{ mt: 2 }}
-          />
-        </div>
-        <Button
-          type="submit"
-          variant="contained"
-          sx={{ mt: 2, mr: 2 }}
-        >
-          Add
-        </Button>
-        <Button
-          type="button"
-          onClick={handleCancel}
-          variant="outlined"
-          sx={{ mt: 2 }}
-        >
-          Cancel
-        </Button>
+        <Grid container rowGap={1} spacing={1}>
+          <Grid item xs={12}>
+            <TextField
+              label="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+              fullWidth
+              color="warning"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label="Amount"
+              type="number"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              required
+              fullWidth
+              color="warning"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              required
+              fullWidth
+              color="warning"
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <Button type="submit" variant="contained" fullWidth>
+              Add
+            </Button>
+          </Grid>
+          <Grid item xs={6}>
+            <Button
+              type="button"
+              onClick={handleCancel}
+              variant="outlined"
+              fullWidth>
+              Cancel
+            </Button>
+          </Grid>
+        </Grid>
       </Box>
     </Container>
   );

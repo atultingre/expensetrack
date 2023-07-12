@@ -7,6 +7,7 @@ import ExpenseForm from "./components/Form/ExpenseForm";
 import ExpenseFormEdit from "./components/Form/ExpenseFormEdit";
 import "./index.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer/Footer";
 const App = () => {
   const [expenses, setExpenses] = useState(() => {
     const savedExpenses = localStorage.getItem("expenses");
@@ -83,6 +84,7 @@ const App = () => {
           <Route  path="/edit/:id"  element={ <ExpenseFormEdit  expenses={expenses}  updateExpense={updateExpense} />  } />
         </Routes>
       </Container>
+      <Footer/>
     </>
   );
 };

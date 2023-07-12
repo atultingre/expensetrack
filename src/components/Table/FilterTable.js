@@ -9,10 +9,11 @@ const FilterTable = ({filterDate, handleChange, sortType, handleSortChange, hand
         <Grid item xs={4}>
           <TextField
             type="month"
-            label="Filter by month"
+            // label="Filter by month"
             value={filterDate}
             onChange={handleFilterChange}
             size="medium"
+            color='warning'
             fullWidth
           />
         </Grid>
@@ -26,6 +27,7 @@ const FilterTable = ({filterDate, handleChange, sortType, handleSortChange, hand
               onChange={handleSortChange}
               label="Sort by"
               size="medium"
+              color='warning'
               fullWidth>
               <MenuItem value="">None</MenuItem>
               <MenuItem value="dateAsc">Date Ascending</MenuItem>
@@ -41,7 +43,8 @@ const FilterTable = ({filterDate, handleChange, sortType, handleSortChange, hand
           <Button
             variant="contained"
             size="large"
-            sx={{ p: 1.7 }}
+            sx={{ p: 1.7 ,  fontWeight:600}}
+            // color='warning'
             onClick={handleDownload}
             fullWidth>
             Excel <SimCardDownloadIcon />

@@ -14,10 +14,26 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  /* background-color: #f8f4f4; */
+  color: black;
+  min-height: calc(100vh - 40px);
 }
 
 .logo{
   font-family: 'Courgette', cursive;
   font-size: x-large;
+}
+
+footer {
+  padding: 10px 0;
+  bottom:0;
+  text-align: center;
+  width:100%;
+  height:40px;   /* Height of the footer */
+  background-color: #ff9800;
+}
+
+footer span{
+  margin-top: auto;
+  font-weight: 600;
+  font-size: 15px;
 }

@@ -1,30 +1,41 @@
-import { AppBar, Box, Toolbar } from "@mui/material";
+import { AppBar, Button, Grid, Toolbar } from "@mui/material";
 import React from "react";
 import { Link, Navigate } from "react-router-dom";
 
 const Navbar = ({ setFilterDate, expenses }) => {
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <Link
-          className="logo"
-          exact
-          to="/"
-          style={{ marginRight: "30px" }}
-          onClick={() => setFilterDate("")}>
-          CashFlowTracker
-        </Link>
-        {expenses.length === 0 ? (
-          <Navigate exact to="/add" />
-        ) : (
-          <Box display="flex">
-            <Link exact to="/add">
-              Add Expense
+    <Grid container>
+      <AppBar
+        position="static"
+        // style={{ backgroundColor: "#ff9800", color: "black" }}
+        >
+        <Toolbar>
+          <Grid item xs={8}>
+            <Link
+              className="logo"
+              exact
+              to="/"
+              onClick={() => setFilterDate("")}>
+              CashFlowTracker
             </Link>
-          </Box>
-        )}
-      </Toolbar>
-    </AppBar>
+          </Grid>
+          {expenses.length === 0 ? (
+            <Navigate exact to="/add" />
+          ) : (
+            <Grid item xs={4}>
+              <Button variant="outlined"
+              // color="secondary" 
+              sx={{ color: "white" }}
+              >
+                <Link exact to="/add">
+                  Add Expense
+                </Link>
+              </Button>
+            </Grid>
+          )}
+        </Toolbar>
+      </AppBar>
+    </Grid>
   );
 };
 

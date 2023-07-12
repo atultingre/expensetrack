@@ -7,6 +7,7 @@ import {
   Button,
   Container,
   Box,
+  Grid,
 } from "@mui/material";
 
 const ExpenseFormEdit = ({ expenses, updateExpense }) => {
@@ -50,34 +51,34 @@ const ExpenseFormEdit = ({ expenses, updateExpense }) => {
   }
 
   return (
-    // <Paper sx={{p:3}}>
-      <Container maxWidth="md" sx={{ mt: 4 }}>
-        <Typography variant="h4" gutterBottom>
-          Edit Expense
-        </Typography>
-        <Box component="form" onSubmit={handleSubmit}>
-          <div>
+    <Container maxWidth="md" sx={{ mt: 10, mb: 15.5 }}>
+      <Typography variant="h4" gutterBottom>
+        Edit Expense
+      </Typography>
+      <Box component="form" onSubmit={handleSubmit}>
+        <Grid container spacing={1} rowGap={1}>
+          <Grid item xs={12} >
             <TextField
               label="Title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
               fullWidth
-              sx={{ mt: 2 }}
+              color="warning"
             />
-          </div>
-          <div>
+          </Grid>
+          <Grid item xs={12}>
             <TextField
               label="Amount"
               type="number"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               required
+              color="warning"
               fullWidth
-              sx={{ mt: 2 }}
             />
-          </div>
-          <div>
+          </Grid>
+          <Grid item xs={12} >
             <TextField
               label="Date"
               type="date"
@@ -85,22 +86,26 @@ const ExpenseFormEdit = ({ expenses, updateExpense }) => {
               onChange={(e) => setDate(e.target.value)}
               required
               fullWidth
-              sx={{ mt: 2 }}
+              color="warning"
             />
-          </div>
-          <Button type="submit" variant="contained" sx={{ mt: 2, mr: 2 }}>
-            Save
-          </Button>
-          <Button
-            type="button"
-            onClick={handleCancel}
-            variant="outlined"
-            sx={{ mt: 2 }}>
-            Cancel
-          </Button>
-        </Box>
-      </Container>
-    // </Paper>
+          </Grid>
+          <Grid item xs={6}>
+            <Button type="submit" variant="contained" fullWidth>
+              Save
+            </Button>
+          </Grid>
+          <Grid item xs={6}>
+            <Button
+              type="button"
+              onClick={handleCancel}
+              variant="outlined"
+              fullWidth>
+              Cancel
+            </Button>
+          </Grid>
+        </Grid>
+      </Box>
+    </Container>
   );
 };
 
