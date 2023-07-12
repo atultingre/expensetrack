@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Route, Link, Routes, NavLink } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AppBar, Toolbar, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import ExpenseList from "./components/ExpenseList";
-import ExpenseForm from "./components/ExpenseForm";
-import ExpenseFormEdit from "./components/ExpenseFormEdit";
-import './index.css';
+import ExpenseForm from "./components/Form/ExpenseForm";
+import ExpenseFormEdit from "./components/Form/ExpenseFormEdit";
+import "./index.css";
+import Navbar from "./components/Navbar";
 const App = () => {
   const [expenses, setExpenses] = useState(() => {
     const savedExpenses = localStorage.getItem("expenses");
@@ -70,60 +71,16 @@ const App = () => {
     });
   };
 
-  const handleFilterChange = (e) => {
-    setFilterDate(e.target.value);
-  };
 
-  const handleHomeClick = () => {
-    setFilterDate("");
-  };
 
   return (
     <>
-      <AppBar position="static">
-        <Toolbar>
-          <NavLink className="logo" to='/'>CashFlowTracker</NavLink>
-          <nav>
-            <Link
-              to="/"
-              onClick={handleHomeClick}
-              style={{ marginLeft: "20px", color: "white" }}>
-              Home
-            </Link>
-            <Link to="/add" style={{ marginLeft: "20px", color: "white" }}>
-              Add Expense
-            </Link>
-          </nav>
-        </Toolbar>
-      </AppBar>
+      <Navbar setFilterDate={setFilterDate} expenses={expenses}/>
       <Container maxWidth="md" style={{ marginTop: "20px" }}>
         <Routes>
-          <Route
-            path="/add"
-            element={<ExpenseForm addExpense={addExpense} />}
-          />
-          <Route
-            path="/"
-            exact
-            element={
-              <ExpenseList
-                expenses={expenses}
-                updateExpense={updateExpense}
-                deleteExpense={deleteExpense}
-                filterDate={filterDate}
-                onFilterChange={handleFilterChange}
-              />
-            }
-          />
-          <Route
-            path="/edit/:id"
-            element={
-              <ExpenseFormEdit
-                expenses={expenses}
-                updateExpense={updateExpense}
-              />
-            }
-          />
+          <Route  path="/add" element={<ExpenseForm addExpense={addExpense} />} />
+          <Route  path="/"  exact element={<ExpenseList expenses={expenses} updateExpense={updateExpense} deleteExpense={deleteExpense} filterDate={filterDate}  setFilterDate={setFilterDate} /> } />
+          <Route  path="/edit/:id"  element={ <ExpenseFormEdit  expenses={expenses}  updateExpense={updateExpense} />  } />
         </Routes>
       </Container>
     </>
