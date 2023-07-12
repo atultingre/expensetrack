@@ -34,7 +34,7 @@ const ExpenseForm = ({ addExpense }) => {
   };
 
   return (
-    <Container maxWidth="md" sx={{ mt: 10, mb: 51,  }}>
+    <Container maxWidth="md" sx={{ mt: 10, mb: 5 }}>
       <Typography variant="h4" gutterBottom>
         Add Expense
       </Typography>
@@ -63,7 +63,8 @@ const ExpenseForm = ({ addExpense }) => {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              type="date"
+              label="Date"
+              type="Date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
               required

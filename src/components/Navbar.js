@@ -16,7 +16,7 @@ const Navbar = ({ setFilterDate, expenses }) => {
               exact
               to="/"
               onClick={() => setFilterDate("")}>
-              CashFlowTracker
+              SpendAnalyzer
             </Link>
           </Grid>
           {expenses.length === 0 ? (

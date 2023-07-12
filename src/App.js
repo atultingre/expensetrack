@@ -11,6 +11,9 @@ import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const [filterDate, setFilterDate] = useState("");
+  // const [title, setTitle] = useState("");
+  // const [amount, setAmount] = useState("");
+  // const [date, setDate] = useState("");
   const [expenses, setExpenses] = useState(() => {
     const savedExpenses = localStorage.getItem("expenses");
     return savedExpenses ? JSON.parse(savedExpenses) : [];
@@ -81,9 +84,9 @@ const App = () => {
 
 
   return (
-    <Box sx={{minHeight:'100vh'}} >
+    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }} >
       <Navbar setFilterDate={setFilterDate} expenses={expenses}/>
-      <Container maxWidth="md" style={{ marginTop: "20px" }}>
+      <Container component="main" sx={{ flexGrow: 1, mt: 4, mb: 2 }}>
         <Routes>
           <Route  path="/add" element={<ExpenseForm addExpense={addExpense} />} />
           <Route  path="/"  exact element={<ExpenseList expenses={expenses} updateExpense={updateExpense} deleteExpense={deleteExpense} filterDate={filterDate}  setFilterDate={setFilterDate} /> } />
