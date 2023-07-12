@@ -8,12 +8,14 @@ import ExpenseFormEdit from "./components/Form/ExpenseFormEdit";
 import "./index.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer/Footer";
+
 const App = () => {
+  const [filterDate, setFilterDate] = useState("");
   const [expenses, setExpenses] = useState(() => {
     const savedExpenses = localStorage.getItem("expenses");
     return savedExpenses ? JSON.parse(savedExpenses) : [];
   });
-  const [filterDate, setFilterDate] = useState("");
+
   // Save expenses to local storage whenever they change
   useEffect(() => {
     localStorage.setItem("expenses", JSON.stringify(expenses));
@@ -27,6 +29,8 @@ const App = () => {
     }
   }, []);
 
+
+  // Add Expenses
   const addExpense = (expense) => {
     setExpenses([...expenses, expense]);
     Swal.fire({
@@ -36,7 +40,8 @@ const App = () => {
       timer: 1500,
     });
   };
-
+  
+  // Update Expenses
   const updateExpense = (id, updatedExpense) => {
     const updatedExpenses = expenses.map((expense) =>
       expense.id === id ? updatedExpense : expense
@@ -49,7 +54,8 @@ const App = () => {
       timer: 1500,
     });
   };
-
+  
+  // Delete Expenses
   const deleteExpense = (id) => {
     Swal.fire({
       icon: "warning",

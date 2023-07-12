@@ -147,6 +147,7 @@ const ExpenseList = ({
       />
       <FilterTable
         filterDate={filterDate}
+        expenses={expenses}
         handleChange={handleChange}
         handleFilterChange={handleFilterChange}
         sortType={sortType}

@@ -16,23 +16,23 @@ const ExpenseTable = ({
       <table className="w-full border border-gray-300 table mt-2">
         <thead className="text-left">
           <tr>
-            <th className="border-b-2 border-gray-300 px-2 py-2">Date</th>
-            <th className="border-b-2 border-gray-300 px-2 py-2">Expense</th>
-            <th className="border-b-2 border-gray-300 px-2 py-2">Amount</th>
-            <th className="border-b-2 border-gray-300 px-2 py-2">Actions</th>
+            <th className="border-b-2 border-gray-300 py-2">Date</th>
+            <th className="border-b-2 border-gray-300 py-2">Expense</th>
+            <th className="border-b-2 border-gray-300 py-2">Amount</th>
+            <th className="border-b-2 border-gray-300 py-2">Actions</th>
           </tr>
         </thead>
         <tbody>
           {sortedExpenses.map((expense) => (
             <>
               <tr key={expense.id}>
-                <td className=" border-b border-gray-300 px-2 py-2">
+                <td className=" border-b border-gray-300 py-2">
                   {moment(expense.date).format("DD-MM-YYYY")}
                 </td>
-                <td className=" border-b border-gray-300 px-2 py-2">
+                <td className=" border-b border-gray-300 py-2">
                   {expense.title}
                 </td>
-                <td className=" border-b border-gray-300 px-2 py-2">
+                <td className=" border-b border-gray-300 py-2">
                   <CountUp end={expense.amount} prefix="₹ " />
                 </td>
 
@@ -57,7 +57,7 @@ const ExpenseTable = ({
             </th>
             <th
               colSpan={2}
-              className="border-b border-gray-300 px-2 py-2  text-left">
+              className="border-b border-gray-300 py-2  text-left">
               <CountUp end={totalSpent} prefix="₹ " />
             </th>
           </tr>
