@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({backgroundColor,color}) => {
   const date = new Date().getFullYear();
   const [isVisible, setIsVisible] = useState(true);
 
@@ -18,7 +18,7 @@ const Footer = () => {
       // Hide the footer after 3 seconds
       timeout = setTimeout(() => {
         setIsVisible(false);
-      }, 2000);
+      }, 1500);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -30,15 +30,15 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer
+    <footer className="Footer"
       style={{
         position: "fixed",
         bottom: isVisible ? 0 : -60, // Adjust the height to hide the footer completely
         left: 0,
         right: 0,
         padding: "10px",
-        backgroundColor: "#ff9800",
-        // backgroundColor: "#f5f5f5",
+        backgroundColor: backgroundColor,
+        color: color,
         textAlign: "center",
         transition: "bottom 0.3s ease-in-out",
       }}

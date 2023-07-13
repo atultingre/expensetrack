@@ -10,7 +10,12 @@ import {
   Grid,
 } from "@mui/material";
 
-const ExpenseFormEdit = ({ expenses, updateExpense }) => {
+const ExpenseFormEdit = ({
+  expenses,
+  updateExpense,
+  backgroundColor,
+  color,
+}) => {
   const { id } = useParams();
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
@@ -52,12 +57,15 @@ const ExpenseFormEdit = ({ expenses, updateExpense }) => {
 
   return (
     <Container maxWidth="md" sx={{ mt: 10, mb: 5 }}>
-      <Typography variant="h4" gutterBottom>
+      <Typography
+        variant="h4"
+        gutterBottom
+        style={{ textAlign: "center", fontFamily: "Courgette, cursive" }}>
         Edit Expense
       </Typography>
       <Box component="form" onSubmit={handleSubmit}>
         <Grid container spacing={1} rowGap={1}>
-          <Grid item xs={12} >
+          <Grid item xs={12}>
             <TextField
               label="Title"
               value={title}
@@ -78,7 +86,7 @@ const ExpenseFormEdit = ({ expenses, updateExpense }) => {
               fullWidth
             />
           </Grid>
-          <Grid item xs={12} >
+          <Grid item xs={12}>
             <TextField
               label="Date"
               type="date"
@@ -90,7 +98,11 @@ const ExpenseFormEdit = ({ expenses, updateExpense }) => {
             />
           </Grid>
           <Grid item xs={6}>
-            <Button type="submit" variant="contained" fullWidth>
+            <Button
+              type="submit"
+              variant="contained"
+              fullWidth
+              style={{ backgroundColor: backgroundColor, color: color }}>
               Save
             </Button>
           </Grid>

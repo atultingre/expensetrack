@@ -10,12 +10,14 @@ const ExpenseTable = ({
   numberWithCommas,
   deleteExpense,
   totalSpent,
+  backgroundColor, color
 }) => {
   return (
-    <div>
-      <table className="w-full border border-gray-300 table mt-2">
-        <thead className="text-left">
-          <tr>
+    <div >
+      <table className="w-full border border-gray-300 table mt-2"
+      >
+        <thead className="text-left" >
+          <tr style={{backgroundColor: backgroundColor, color:color}}>
             <th className="border-b-2 border-gray-300 py-2">Date</th>
             <th className="border-b-2 border-gray-300 py-2">Expense</th>
             <th className="border-b-2 border-gray-300 py-2">Amount</th>

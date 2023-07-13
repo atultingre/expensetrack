@@ -10,7 +10,7 @@ import {
   Grid,
 } from "@mui/material";
 
-const ExpenseForm = ({ addExpense }) => {
+const ExpenseForm = ({ addExpense, backgroundColor, color}) => {
   const navigate = useNavigate();
 
   const [title, setTitle] = useState("");
@@ -35,7 +35,7 @@ const ExpenseForm = ({ addExpense }) => {
 
   return (
     <Container maxWidth="md" sx={{ mt: 10, mb: 5 }}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom style={{textAlign:'center', fontFamily:'Courgette, cursive'}}>
         Add Expense
       </Typography>
       <Box component="form" onSubmit={handleSubmit}>
@@ -73,7 +73,9 @@ const ExpenseForm = ({ addExpense }) => {
             />
           </Grid>
           <Grid item xs={6}>
-            <Button type="submit" variant="contained" fullWidth>
+          <Button type="submit" variant="contained" fullWidth
+              style={{backgroundColor: backgroundColor, color:color}} 
+            >
               Add
             </Button>
           </Grid>
@@ -82,6 +84,7 @@ const ExpenseForm = ({ addExpense }) => {
               type="button"
               onClick={handleCancel}
               variant="outlined"
+              // style={{backgroundColor:backgroundColor, color:color}}
               fullWidth>
               Cancel
             </Button>

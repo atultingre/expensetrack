@@ -14,6 +14,7 @@ const ExpenseList = ({
   filterDate,
   setFilterDate,
   onFilterChange,
+  backgroundColor,color
 }) => {
   const [sortType, setSortType] = useState(""); // Track the sort type
   const handleChange = (e) => {
@@ -144,6 +145,7 @@ const ExpenseList = ({
         yearSpent={yearSpent}
         totalSpent={totalSpent}
         numberWithCommas={numberWithCommas}
+        // backgroundColor={backgroundColor} color={color}
       />
       <FilterTable
         filterDate={filterDate}
@@ -153,6 +155,7 @@ const ExpenseList = ({
         sortType={sortType}
         handleSortChange={handleSortChange}
         handleDownload={handleDownload}
+        backgroundColor={backgroundColor} color={color}
       />
 
       <ExpenseTable
@@ -160,6 +163,7 @@ const ExpenseList = ({
         numberWithCommas={numberWithCommas}
         deleteExpense={deleteExpense}
         totalSpent={totalSpent}
+        // backgroundColor={backgroundColor} color={color}
       />
     </Container>
   );

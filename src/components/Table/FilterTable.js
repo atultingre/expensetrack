@@ -2,14 +2,14 @@ import React from 'react'
 import { Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material'
 import SimCardDownloadIcon from "@mui/icons-material/SimCardDownload";
 
-const FilterTable = ({filterDate, handleChange, sortType, handleSortChange, handleDownload, handleFilterChange}) => {
+const FilterTable = ({filterDate, handleChange, sortType, handleSortChange, handleDownload, handleFilterChange, backgroundColor, color}) => {
   
   return (
     <Grid container spacing={2} sx={{ mb: 1, mt: 3 }}>
         <Grid item xs={4}>
           <TextField
             type="month"
-            // label="Filter by month"
+            label="Filter by month"
             value={filterDate}
             onChange={handleFilterChange}
             size="medium"
@@ -44,8 +44,8 @@ const FilterTable = ({filterDate, handleChange, sortType, handleSortChange, hand
             variant="contained"
             size="large"
             sx={{ p: 1.7 ,  fontWeight:600}}
-            // color='warning'
             onClick={handleDownload}
+            style={{backgroundColor: backgroundColor, color:color}} 
             fullWidth>
             Excel <SimCardDownloadIcon />
           </Button>

@@ -6,14 +6,14 @@ import ExpenseList from "./components/ExpenseList";
 import ExpenseForm from "./components/Form/ExpenseForm";
 import ExpenseFormEdit from "./components/Form/ExpenseFormEdit";
 import "./index.css";
+import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer/Footer";
+import { colorCombinations } from "./components/colorData";
 
 const App = () => {
   const [filterDate, setFilterDate] = useState("");
-  // const [title, setTitle] = useState("");
-  // const [amount, setAmount] = useState("");
-  // const [date, setDate] = useState("");
+  const [colorCombination, setColorCombination] = useState({});
   const [expenses, setExpenses] = useState(() => {
     const savedExpenses = localStorage.getItem("expenses");
     return savedExpenses ? JSON.parse(savedExpenses) : [];
@@ -32,6 +32,13 @@ const App = () => {
     }
   }, []);
 
+
+  useEffect(() => {
+    // Generate a random index
+    const randomIndex = Math.floor(Math.random() * colorCombinations.length);
+    // Set the random color combination
+    setColorCombination(colorCombinations[randomIndex]);
+  }, []);
 
   // Add Expenses
   const addExpense = (expense) => {
@@ -85,15 +92,15 @@ const App = () => {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }} >
-      <Navbar setFilterDate={setFilterDate} expenses={expenses}/>
+      <Navbar setFilterDate={setFilterDate} expenses={expenses} backgroundColor={colorCombination.backgroundColor} color={colorCombination.color}/>
       <Container component="main" sx={{ flexGrow: 1, mt: 4, mb: 2 }}>
         <Routes>
-          <Route  path="/add" element={<ExpenseForm addExpense={addExpense} />} />
-          <Route  path="/"  exact element={<ExpenseList expenses={expenses} updateExpense={updateExpense} deleteExpense={deleteExpense} filterDate={filterDate}  setFilterDate={setFilterDate} /> } />
-          <Route  path="/edit/:id"  element={ <ExpenseFormEdit  expenses={expenses}  updateExpense={updateExpense} />  } />
+          <Route  path="/add" element={<ExpenseForm addExpense={addExpense} backgroundColor={colorCombination.backgroundColor} color={colorCombination.color}/>} />
+          <Route  path="/"  exact element={<ExpenseList expenses={expenses} updateExpense={updateExpense} deleteExpense={deleteExpense} filterDate={filterDate}  setFilterDate={setFilterDate} backgroundColor={colorCombination.backgroundColor} color={colorCombination.color}/> } />
+          <Route  path="/edit/:id"  element={ <ExpenseFormEdit  expenses={expenses}  updateExpense={updateExpense} backgroundColor={colorCombination.backgroundColor} color={colorCombination.color}/>  } />
         </Routes>
       </Container>
-      <Footer/>    
+      <Footer backgroundColor={colorCombination.backgroundColor} color={colorCombination.color}/>    
     </Box>
   );
 };
