@@ -105,7 +105,7 @@ const ExpenseList = ({
       ["Year", yearSpent],
       ["Total Spent", totalSpent],
       [],
-      ["Date", "Title", "Amount"],
+      ["Date", "Expense", "Amount"],
       ...sortedExpenses.map((expense) => [
         moment(expense.date).format("DD-MM-YYYY"),
         expense.title,
