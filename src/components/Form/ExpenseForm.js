@@ -47,7 +47,7 @@ const ExpenseForm = ({ addExpense, backgroundColor, color}) => {
               onChange={(e) => setTitle(e.target.value)}
               required
               fullWidth
-              color="warning"
+              color={title.length <= 0 ? "error": "success"}
             />
           </Grid>
           <Grid item xs={12}>
@@ -58,7 +58,7 @@ const ExpenseForm = ({ addExpense, backgroundColor, color}) => {
               onChange={(e) => setAmount(e.target.value)}
               required
               fullWidth
-              color="warning"
+              color={amount.length <= 0 ? "error": "success"}
             />
           </Grid>
           <Grid item xs={12}>
@@ -69,7 +69,7 @@ const ExpenseForm = ({ addExpense, backgroundColor, color}) => {
               onChange={(e) => setDate(e.target.value)}
               required
               fullWidth
-              color="warning"
+              color={date.length <= 0 ? "error": "success"}
             />
           </Grid>
           <Grid item xs={6}>
